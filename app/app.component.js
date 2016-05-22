@@ -10,7 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
+var goals_component_1 = require('./goals/goals.component');
 var header_component_1 = require('./header/header.component');
+var home_component_1 = require('./home/home.component');
+var users_component_1 = require('./users/users.component');
 var AppComponent = (function () {
     function AppComponent() {
     }
@@ -19,17 +22,17 @@ var AppComponent = (function () {
             {
                 path: '/home',
                 name: 'Home',
-                component: HomeComponent
+                component: home_component_1.HomeComponent
             },
             {
                 path: '/users',
                 name: 'Users',
-                component: UsersComponent
+                component: users_component_1.UsersComponent
             },
             {
                 path: '/goals',
                 name: 'Goals',
-                component: GoalsComponent
+                component: goals_component_1.GoalsComponent
             }
         ]),
         core_1.Component({

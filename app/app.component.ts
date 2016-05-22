@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
-import {HeaderComponent} from './header/header.component';
+import { GoalsComponent } from './goals/goals.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
 
 @RouteConfig([
   {
