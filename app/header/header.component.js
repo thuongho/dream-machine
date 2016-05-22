@@ -17,6 +17,7 @@ var HeaderComponent = (function () {
         core_1.Component({
             selector: 'dream-header',
             templateUrl: 'app/header/header.component.html',
+            styles: ["\n    .router-link-active {\n      background-color: #178acc;\n    }\n  "],
             directives: [router_deprecated_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
