@@ -19,7 +19,7 @@ var UsersComponent = (function () {
         var _this = this;
         this._userService.getUsers()
             .subscribe(function (users) {
-            console.log(users);
+            // console.log(users);
             _this.users = users;
         });
     };

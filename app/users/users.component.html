@@ -1,4 +1,4 @@
-<h4>Users</h4>
+<h1>Users</h1>
 
 <table class="table table-bordered">
   <tr>
@@ -10,7 +10,7 @@
   <tr *ngFor="let user of users">
     <td>{{ user.name }}</td>
     <td>{{ user.email }}</td>
-    <td><i class="glyphicon glyphicon-edit"></i></td>
-    <td><i class="glyphicon glyphicon-remove"></i></td>
+    <td><a><i class="glyphicon glyphicon-edit"></i></a></td>
+    <td><a><i class="glyphicon glyphicon-remove"></i></a></td>
   </tr>
 </table>
