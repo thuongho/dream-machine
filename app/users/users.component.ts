@@ -10,6 +10,7 @@ import { UserService } from '../services/user.service';
 })
 
 export class UsersComponent implements OnInit {
+  users;
 
   constructor(private _userService: UserService) {}
 
@@ -17,6 +18,7 @@ export class UsersComponent implements OnInit {
     this._userService.getUsers()
       .subscribe(users => {
         console.log(users);
+        this.users = users;
       });
   }
 }

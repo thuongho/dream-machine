@@ -16,9 +16,11 @@ var UsersComponent = (function () {
         this._userService = _userService;
     }
     UsersComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this._userService.getUsers()
             .subscribe(function (users) {
             console.log(users);
+            _this.users = users;
         });
     };
     UsersComponent = __decorate([
