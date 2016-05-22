@@ -9,15 +9,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_deprecated_1 = require('@angular/router-deprecated');
+var goals_component_1 = require('./goals/goals.component');
 var header_component_1 = require('./header/header.component');
+var home_component_1 = require('./home/home.component');
+var users_component_1 = require('./users/users.component');
 var AppComponent = (function () {
     function AppComponent() {
     }
     AppComponent = __decorate([
+        router_deprecated_1.RouteConfig([
+            {
+                path: '/',
+                name: 'Home',
+                component: home_component_1.HomeComponent,
+                useAsDefault: true
+            },
+            {
+                path: '/users',
+                name: 'Users',
+                component: users_component_1.UsersComponent
+            },
+            {
+                path: '/goals',
+                name: 'Goals',
+                component: goals_component_1.GoalsComponent
+            },
+            {
+                path: '*other',
+                name: 'Other',
+                redirectTo: ['Home']
+            }
+        ]),
         core_1.Component({
             selector: 'my-app',
-            template: "\n      <dream-header></dream-header>\n      <h1>My First Angular 2 App</h1>\n    ",
-            directives: [header_component_1.HeaderComponent]
+            templateUrl: 'app/app.component.html',
+            directives: [
+                router_deprecated_1.ROUTER_DIRECTIVES,
+                header_component_1.HeaderComponent
+            ],
+            providers: [router_deprecated_1.ROUTER_PROVIDERS]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

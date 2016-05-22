@@ -9,19 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_deprecated_1 = require('@angular/router-deprecated');
-var HeaderComponent = (function () {
-    function HeaderComponent() {
+var GoalsComponent = (function () {
+    function GoalsComponent() {
     }
-    HeaderComponent = __decorate([
+    GoalsComponent = __decorate([
         core_1.Component({
-            selector: 'dream-header',
-            templateUrl: 'app/header/header.component.html',
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES]
+            selector: 'goals',
+            template: "\n    <h4>Goals</h4>\n  "
         }), 
         __metadata('design:paramtypes', [])
-    ], HeaderComponent);
-    return HeaderComponent;
+    ], GoalsComponent);
+    return GoalsComponent;
 }());
-exports.HeaderComponent = HeaderComponent;
-//# sourceMappingURL=header.component.js.map
+exports.GoalsComponent = GoalsComponent;
+//# sourceMappingURL=goals.component.js.map
