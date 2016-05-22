@@ -8,7 +8,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
     .router-link-active {
       background-color: #178acc;
     }
-  `]
+  `],
   directives: [ROUTER_DIRECTIVES]
 })
 

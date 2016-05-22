@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'users',
-  template: `
-    <h4>Users</h4>
-  `
+  templateUrl: '/app/users/users.component.html'
 })
 
 export class UsersComponent {
