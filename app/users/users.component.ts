@@ -1,12 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HTTP_PROVIDERS } from '@angular/http';
+
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'users',
-  template: `
-    <h4>Users</h4>
-  `
+  templateUrl: '/app/users/users.component.html',
+  providers: [HTTP_PROVIDERS, UserService]
 })
 
-export class UsersComponent {
+export class UsersComponent implements OnInit {
+  users;
 
+  constructor(private _userService: UserService) {}
+
+  ngOnInit() {
+    this._userService.getUsers()
+      .subscribe(users => {
+        console.log(users);
+        this.users = users;
+      });
+  }
 }
