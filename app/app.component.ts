@@ -8,9 +8,10 @@ import { UsersComponent } from './users/users.component';
 
 @RouteConfig([
   {
-    path: '/home',
+    path: '/',
     name: 'Home',
-    component: HomeComponent
+    component: HomeComponent,
+    useAsDefault: true
   },
   {
     path: '/users',
@@ -21,6 +22,11 @@ import { UsersComponent } from './users/users.component';
     path: '/goals',
     name: 'Goals',
     component: GoalsComponent
+  },
+  {
+    path: '*other',
+    name: 'Other',
+    redirectTo: ['Home']
   }
 ])
 
