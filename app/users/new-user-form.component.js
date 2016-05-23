@@ -24,7 +24,7 @@ var NewUserFormComponent = (function () {
         });
     }
     NewUserFormComponent.prototype.addUser = function () {
-        console.log();
+        console.log(this.form.value);
     };
     NewUserFormComponent = __decorate([
         core_1.Component({

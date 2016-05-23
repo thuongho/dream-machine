@@ -9,19 +9,25 @@
       id="name" 
       type="text"
       class="form-control"
-      ngControl="name">
+      ngControl="name"
+      #name="ngForm"> {{ name.toString() }}
+    <div *ngIf="name.touched && name.errors.required">Field is required.</div>
     <label for="email">Email</label>
     <input 
       id="email" 
       type="text"
       class="form-control"
-      ngControl="email">
+      ngControl="email"
+      #email="ngForm">
+    <div *ngIf="email.touched && email.errors.required">Field is required.</div>
     <label for="phone">Phone</label>
     <input 
       id="phone" 
       type="text"
       class="form-control"
-      ngControl="phone">
+      ngControl="phone"
+      #phone="ngForm">
+    <div *ngIf="phone.touched && phone.errors.required">Field is required.</div>
   </div>
 
   <!-- Address -->
@@ -32,25 +38,33 @@
       id="street" 
       type="text"
       class="form-control"
-      ngControl="street">
-    <label for="Suite">Suite</label>
+      ngControl="street"
+      #street="ngForm">
+    <div *ngIf="street.touched && street.errors.required">Field is required.</div>
+    <label for="suite">Suite</label>
     <input 
-      id="Suite" 
+      id="suite" 
       type="text"
       class="form-control"
-      ngControl="Suite">
+      ngControl="suite"
+      #suite="ngForm">
+    <div *ngIf="suite.touched && suite.errors.required">Field is required.</div>
     <label for="city">City</label>
     <input 
       id="city" 
       type="text"
       class="form-control"
-      ngControl="city">
+      ngControl="city"
+      #city="ngForm">
+    <div *ngIf="city.touched && city.errors.required">Field is required.</div>
     <label for="zip">Zip</label>
     <input 
       id="zip" 
       type="text"
       class="form-control"
-      ngControl="zip">
+      ngControl="zip"
+      #zip="ngForm">
+    <div *ngIf="zip.touched && zip.errors.required">Field is required.</div>
   </div>
   
   <button class="btn btn-primary" type="submit">Save</button>

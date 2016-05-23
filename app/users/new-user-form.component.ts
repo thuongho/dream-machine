@@ -23,6 +23,6 @@ export class NewUserFormComponent {
   }
 
   addUser() {
-    console.log();
+    console.log(this.form.value);
   }
 }
