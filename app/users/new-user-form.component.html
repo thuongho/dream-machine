@@ -4,7 +4,7 @@
     <h1>Add a User</h1>
   </div>
   <div class="col-md-6 col-md-offset-3 well">
-    <form [ngFormModel]="form"
+    <form [ngFormModel]="newUserForm"
           (onSubmit)="addUser()">
       <!-- User -->
       <legend>User</legend>
@@ -41,48 +41,50 @@
 
       <!-- Address -->
       <legend>Address</legend>
-      <div class="form-group">
-        <label for="street">Street</label>
-        <input 
-          id="street" 
-          type="text"
-          class="form-control"
-          ngControl="street"
-          #street="ngForm">
-        <div *ngIf="street.touched && !street.valid">Field is required.</div>
+      <div ngControlGroup="address">
+        <div class="form-group">
+          <label for="street">Street</label>
+          <input 
+            id="street" 
+            type="text"
+            class="form-control"
+            ngControl="street"
+            #street="ngForm">
+          <div *ngIf="street.touched && !street.valid">Field is required.</div>
+        </div>
+        <div class="form-group">
+          <label for="suite">Suite</label>
+          <input 
+            id="suite" 
+            type="text"
+            class="form-control"
+            ngControl="suite"
+            #suite="ngForm">
+          <div *ngIf="suite.touched && !suite.valid">Field is required.</div>
+        </div>
+        <div class="form-group">
+          <label for="city">City</label>
+          <input 
+            id="city" 
+            type="text"
+            class="form-control"
+            ngControl="city"
+            #city="ngForm">
+          <div *ngIf="city.touched && !city.valid">Field is required.</div>
+        </div>
+        <div class="form-group">
+          <label for="zip">Zip</label>
+          <input 
+            id="zip" 
+            type="text"
+            class="form-control"
+            ngControl="zip"
+            #zip="ngForm">
+          <div *ngIf="zip.touched && !zip.valid">Field is required.</div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="suite">Suite</label>
-        <input 
-          id="suite" 
-          type="text"
-          class="form-control"
-          ngControl="suite"
-          #suite="ngForm">
-        <div *ngIf="suite.touched && !suite.valid">Field is required.</div>
-      </div>
-      <div class="form-group">
-        <label for="city">City</label>
-        <input 
-          id="city" 
-          type="text"
-          class="form-control"
-          ngControl="city"
-          #city="ngForm">
-        <div *ngIf="city.touched && !city.valid">Field is required.</div>
-      </div>
-      <div class="form-group">
-        <label for="zip">Zip</label>
-        <input 
-          id="zip" 
-          type="text"
-          class="form-control"
-          ngControl="zip"
-          #zip="ngForm">
-        <div *ngIf="zip.touched && !zip.valid">Field is required.</div>
-      </div>
-      
-      <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Save</button>
+
+      <button class="btn btn-primary" type="submit" [disabled]="!newUserForm.valid">Save</button>
     </form>
   </div>
 </div>

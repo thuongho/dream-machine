@@ -13,18 +13,20 @@ var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var NewUserFormComponent = (function () {
     function NewUserFormComponent(fb) {
-        this.form = fb.group({
+        this.newUserForm = fb.group({
             name: ['', common_1.Validators.required],
             email: ['', common_1.Validators.required],
             phone: ['', common_1.Validators.required],
-            street: ['', common_1.Validators.required],
-            suite: ['', common_1.Validators.required],
-            city: ['', common_1.Validators.required],
-            zip: ['', common_1.Validators.required]
+            address: fb.group({
+                street: ['', common_1.Validators.required],
+                suite: ['', common_1.Validators.required],
+                city: ['', common_1.Validators.required],
+                zip: ['', common_1.Validators.required]
+            })
         });
     }
     NewUserFormComponent.prototype.addUser = function () {
-        console.log(this.form.value);
+        console.log(this.newUserForm.value);
     };
     NewUserFormComponent = __decorate([
         core_1.Component({

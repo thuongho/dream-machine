@@ -8,21 +8,23 @@ import { ControlGroup, FORM_DIRECTIVES, FormBuilder, Validators } from '@angular
 })
 
 export class NewUserFormComponent {
-  form: ControlGroup;
+  newUserForm: ControlGroup;
 
   constructor(fb: FormBuilder) {
-    this.form = fb.group({
+    this.newUserForm = fb.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
       phone: ['', Validators.required],
-      street: ['', Validators.required],
-      suite: ['', Validators.required],
-      city: ['', Validators.required],
-      zip: ['', Validators.required]
+      address: fb.group({
+        street: ['', Validators.required],
+        suite: ['', Validators.required],
+        city: ['', Validators.required],
+        zip: ['', Validators.required]
+      })
     })
   }
 
   addUser() {
-    console.log(this.form.value);
+    console.log(this.newUserForm.value);
   }
 }
