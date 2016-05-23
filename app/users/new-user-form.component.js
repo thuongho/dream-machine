@@ -28,6 +28,11 @@ var NewUserFormComponent = (function () {
     NewUserFormComponent.prototype.addUser = function () {
         console.log(this.newUserForm.value);
     };
+    NewUserFormComponent.prototype.routerCanDeactivate = function (nextInstruction, prevInstruction) {
+        if (this.newUserForm.dirty) {
+            return confirm('Page has unsaved info, are you sure you want to leave page?');
+        }
+    };
     NewUserFormComponent = __decorate([
         core_1.Component({
             selector: 'new-user-form',

@@ -1,3 +1,4 @@
+import { CanDeactivate, ComponentInstruction } from '@angular/router-deprecated';
 import { Component } from '@angular/core';
 // import { NgForm } from '@angular/common';
 import { ControlGroup, FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
@@ -7,7 +8,7 @@ import { ControlGroup, FORM_DIRECTIVES, FormBuilder, Validators } from '@angular
   templateUrl: 'app/users/new-user-form.component.html'
 })
 
-export class NewUserFormComponent {
+export class NewUserFormComponent implements CanDeactivate {
   newUserForm: ControlGroup;
 
   constructor(fb: FormBuilder) {
@@ -26,5 +27,11 @@ export class NewUserFormComponent {
 
   addUser() {
     console.log(this.newUserForm.value);
+  }
+
+  routerCanDeactivate(nextInstruction: ComponentInstruction, prevInstruction: ComponentInstruction) {
+    if (this.newUserForm.dirty) {
+      return confirm('Page has unsaved info, are you sure you want to leave page?');
+    }
   }
 }
