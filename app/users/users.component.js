@@ -14,6 +14,7 @@ var user_service_1 = require('../services/user.service');
 var UsersComponent = (function () {
     function UsersComponent(_userService) {
         this._userService = _userService;
+        this.users = [Object];
     }
     UsersComponent.prototype.ngOnInit = function () {
         var _this = this;

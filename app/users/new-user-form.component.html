@@ -1,0 +1,31 @@
+<form [ngFormModel]="form"
+      (onSubmit)="addUser()">
+  <!-- User -->
+  <div class="form-group">
+    <h4>User</h4>
+    <label for="name">Name</label>
+    <input 
+      id="name" 
+      type="text"
+      class="form-control"
+      ngControl="name">
+    <label for="email">Email</label>
+    <input 
+      id="email" 
+      type="text"
+      class="form-control"
+      ngControl="email">
+    <label for="phone">Phone</label>
+    <input 
+      id="phone" 
+      type="text"
+      class="form-control"
+      ngControl="phone">
+  </div>
+
+  <!-- Address -->
+  <div class="form-group">
+    <h4>Address</h4>
+  </div>
+  
+</form>
