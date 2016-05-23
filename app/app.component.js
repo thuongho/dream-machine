@@ -13,6 +13,7 @@ var router_deprecated_1 = require('@angular/router-deprecated');
 var goals_component_1 = require('./goals/goals.component');
 var header_component_1 = require('./header/header.component');
 var home_component_1 = require('./home/home.component');
+var new_user_form_component_1 = require('./users/new-user-form.component');
 var users_component_1 = require('./users/users.component');
 var AppComponent = (function () {
     function AppComponent() {
@@ -34,6 +35,11 @@ var AppComponent = (function () {
                 path: '/goals',
                 name: 'Goals',
                 component: goals_component_1.GoalsComponent
+            },
+            {
+                path: '/new',
+                name: 'New',
+                component: new_user_form_component_1.NewUserFormComponent
             },
             {
                 path: '*other',

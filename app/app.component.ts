@@ -4,6 +4,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
 import { GoalsComponent } from './goals/goals.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { NewUserFormComponent } from './users/new-user-form.component';
 import { UsersComponent } from './users/users.component';
 
 @RouteConfig([
@@ -22,6 +23,11 @@ import { UsersComponent } from './users/users.component';
     path: '/goals',
     name: 'Goals',
     component: GoalsComponent
+  },
+  {
+    path: '/new',
+    name: 'New',
+    component: NewUserFormComponent
   },
   {
     path: '*other',
