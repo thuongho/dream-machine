@@ -10,8 +10,8 @@
       type="text"
       class="form-control"
       ngControl="name"
-      #name="ngForm"> {{ name.toString() }}
-    <div *ngIf="name.touched && name.errors.required">Field is required.</div>
+      #name="ngForm">
+    <div *ngIf="name.touched && !name.valid">Field is required.</div>
     <label for="email">Email</label>
     <input 
       id="email" 
@@ -19,7 +19,7 @@
       class="form-control"
       ngControl="email"
       #email="ngForm">
-    <div *ngIf="email.touched && email.errors.required">Field is required.</div>
+    <div *ngIf="email.touched && !email.valid">Field is required.</div>
     <label for="phone">Phone</label>
     <input 
       id="phone" 
@@ -27,7 +27,7 @@
       class="form-control"
       ngControl="phone"
       #phone="ngForm">
-    <div *ngIf="phone.touched && phone.errors.required">Field is required.</div>
+    <div *ngIf="phone.touched && !phone.valid">Field is required.</div>
   </div>
 
   <!-- Address -->
@@ -40,7 +40,7 @@
       class="form-control"
       ngControl="street"
       #street="ngForm">
-    <div *ngIf="street.touched && street.errors.required">Field is required.</div>
+    <div *ngIf="street.touched && !street.valid">Field is required.</div>
     <label for="suite">Suite</label>
     <input 
       id="suite" 
@@ -48,7 +48,7 @@
       class="form-control"
       ngControl="suite"
       #suite="ngForm">
-    <div *ngIf="suite.touched && suite.errors.required">Field is required.</div>
+    <div *ngIf="suite.touched && !suite.valid">Field is required.</div>
     <label for="city">City</label>
     <input 
       id="city" 
@@ -56,7 +56,7 @@
       class="form-control"
       ngControl="city"
       #city="ngForm">
-    <div *ngIf="city.touched && city.errors.required">Field is required.</div>
+    <div *ngIf="city.touched && !city.valid">Field is required.</div>
     <label for="zip">Zip</label>
     <input 
       id="zip" 
@@ -64,8 +64,8 @@
       class="form-control"
       ngControl="zip"
       #zip="ngForm">
-    <div *ngIf="zip.touched && zip.errors.required">Field is required.</div>
+    <div *ngIf="zip.touched && !zip.valid">Field is required.</div>
   </div>
   
-  <button class="btn btn-primary" type="submit">Save</button>
+  <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Save</button>
 </form>
