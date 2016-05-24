@@ -2,6 +2,7 @@ import { CanDeactivate, ComponentInstruction } from '@angular/router-deprecated'
 import { Component } from '@angular/core';
 // import { NgForm } from '@angular/common';
 import { ControlGroup, FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
+import { Router } from '@angular/router';
 
 import { UserService } from '../services/user.service';
 
@@ -13,29 +14,37 @@ import { UserService } from '../services/user.service';
 export class NewUserFormComponent implements CanDeactivate {
   newUserForm: ControlGroup;
 
-  constructor(fb: FormBuilder, private _userService: UserService) {
+  constructor(
+    fb: FormBuilder, 
+    private _router: Router,
+    private _userService: UserService
+  ) {
     this.newUserForm = fb.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
-      phone: ['', Validators.required],
+      phone: [''],
       address: fb.group({
-        street: ['', Validators.required],
-        suite: ['', Validators.required],
-        city: ['', Validators.required],
-        zip: ['', Validators.required]
+        street: [''],
+        suite: [''],
+        city: [''],
+        zip: ['']
       })
     })
   }
 
   addUser() {
     // console.log(this.newUserForm.value);
-    this._userService.saveUser(this.newUserForm.value)
-      .subscribe(this.newUserForm.value)
+    // this._userService.saveUser(this.newUserForm.value)
+    //   .subscribe(x => {
+    //     // this.form.markAsPristine();
+    //     this._router.navigate(['Users']);
+    //   });
   }
 
   routerCanDeactivate(nextInstruction: ComponentInstruction, prevInstruction: ComponentInstruction) {
     if (this.newUserForm.dirty) {
       return confirm('Page has unsaved info, are you sure you want to leave page?');
     }
+    return true;
   }
 }
