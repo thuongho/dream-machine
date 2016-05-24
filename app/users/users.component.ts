@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';
 import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 
+// import { User } from './user';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -12,7 +13,9 @@ import { UserService } from '../services/user.service';
 })
 
 export class UsersComponent implements OnInit {
-  users = [Object];
+  // users: User[];
+  // error: any;
+  users: [Object];
 
   constructor(private _userService: UserService) {}
 
@@ -22,5 +25,8 @@ export class UsersComponent implements OnInit {
         // console.log(users);
         this.users = users;
       });
+    // this._userService.getUsers()
+    //   .then(users => this.users = users)
+    //   .catch(error => this.error = error);
   }
 }

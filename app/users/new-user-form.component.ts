@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 // import { NgForm } from '@angular/common';
 import { ControlGroup, FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
 
+import { UserService } from '../services/user.service';
+
 @Component({
   selector: 'new-user-form',
   templateUrl: 'app/users/new-user-form.component.html'
@@ -11,7 +13,7 @@ import { ControlGroup, FORM_DIRECTIVES, FormBuilder, Validators } from '@angular
 export class NewUserFormComponent implements CanDeactivate {
   newUserForm: ControlGroup;
 
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder, private _userService: UserService) {
     this.newUserForm = fb.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
@@ -26,7 +28,9 @@ export class NewUserFormComponent implements CanDeactivate {
   }
 
   addUser() {
-    console.log(this.newUserForm.value);
+    // console.log(this.newUserForm.value);
+    this._userService.saveUser(this.newUserForm.value)
+      .subscribe(this.newUserForm.value)
   }
 
   routerCanDeactivate(nextInstruction: ComponentInstruction, prevInstruction: ComponentInstruction) {

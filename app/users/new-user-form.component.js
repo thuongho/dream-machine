@@ -11,8 +11,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 // import { NgForm } from '@angular/common';
 var common_1 = require('@angular/common');
+var user_service_1 = require('../services/user.service');
 var NewUserFormComponent = (function () {
-    function NewUserFormComponent(fb) {
+    function NewUserFormComponent(fb, _userService) {
+        this._userService = _userService;
         this.newUserForm = fb.group({
             name: ['', common_1.Validators.required],
             email: ['', common_1.Validators.required],
@@ -26,7 +28,9 @@ var NewUserFormComponent = (function () {
         });
     }
     NewUserFormComponent.prototype.addUser = function () {
-        console.log(this.newUserForm.value);
+        // console.log(this.newUserForm.value);
+        this._userService.saveUser(this.newUserForm.value)
+            .subscribe(this.newUserForm.value);
     };
     NewUserFormComponent.prototype.routerCanDeactivate = function (nextInstruction, prevInstruction) {
         if (this.newUserForm.dirty) {
@@ -38,7 +42,7 @@ var NewUserFormComponent = (function () {
             selector: 'new-user-form',
             templateUrl: 'app/users/new-user-form.component.html'
         }), 
-        __metadata('design:paramtypes', [common_1.FormBuilder])
+        __metadata('design:paramtypes', [common_1.FormBuilder, user_service_1.UserService])
     ], NewUserFormComponent);
     return NewUserFormComponent;
 }());
