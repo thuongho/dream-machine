@@ -2,9 +2,9 @@ import { CanDeactivate, ComponentInstruction } from '@angular/router-deprecated'
 import { Component } from '@angular/core';
 // import { NgForm } from '@angular/common';
 import { ControlGroup, FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 
-import { UserService } from '../services/user.service';
+// import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'new-user-form',
@@ -15,9 +15,9 @@ export class NewUserFormComponent implements CanDeactivate {
   newUserForm: ControlGroup;
 
   constructor(
-    fb: FormBuilder, 
-    private _router: Router,
-    private _userService: UserService
+    fb: FormBuilder
+    // private _router: Router,
+    // private _userService: UserService
   ) {
     this.newUserForm = fb.group({
       name: ['', Validators.required],

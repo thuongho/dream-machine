@@ -11,12 +11,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 // import { NgForm } from '@angular/common';
 var common_1 = require('@angular/common');
-var router_1 = require('@angular/router');
-var user_service_1 = require('../services/user.service');
+// import { Router } from '@angular/router';
+// import { UserService } from '../services/user.service';
 var NewUserFormComponent = (function () {
-    function NewUserFormComponent(fb, _router, _userService) {
-        this._router = _router;
-        this._userService = _userService;
+    function NewUserFormComponent(fb) {
         this.newUserForm = fb.group({
             name: ['', common_1.Validators.required],
             email: ['', common_1.Validators.required],
@@ -48,7 +46,7 @@ var NewUserFormComponent = (function () {
             selector: 'new-user-form',
             templateUrl: 'app/users/new-user-form.component.html'
         }), 
-        __metadata('design:paramtypes', [common_1.FormBuilder, router_1.Router, user_service_1.UserService])
+        __metadata('design:paramtypes', [common_1.FormBuilder])
     ], NewUserFormComponent);
     return NewUserFormComponent;
 }());
