@@ -11,10 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 // import { NgForm } from '@angular/common';
 var common_1 = require('@angular/common');
-// import { Router } from '@angular/router';
-// import { UserService } from '../services/user.service';
+var router_1 = require('@angular/router');
+var user_service_1 = require('../services/user.service');
 var NewUserFormComponent = (function () {
-    function NewUserFormComponent(fb) {
+    function NewUserFormComponent(fb, _router, _userService) {
+        this._router = _router;
+        this._userService = _userService;
         this.newUserForm = fb.group({
             name: ['', common_1.Validators.required],
             email: ['', common_1.Validators.required],
@@ -28,12 +30,13 @@ var NewUserFormComponent = (function () {
         });
     }
     NewUserFormComponent.prototype.addUser = function () {
+        var _this = this;
         // console.log(this.newUserForm.value);
-        // this._userService.saveUser(this.newUserForm.value)
-        //   .subscribe(x => {
-        //     // this.form.markAsPristine();
-        //     this._router.navigate(['Users']);
-        //   });
+        this._userService.saveUser(this.newUserForm.value)
+            .subscribe(function (x) {
+            // this.form.markAsPristine();
+            _this._router.navigate(['Users']);
+        });
     };
     NewUserFormComponent.prototype.routerCanDeactivate = function (nextInstruction, prevInstruction) {
         if (this.newUserForm.dirty) {
@@ -44,9 +47,10 @@ var NewUserFormComponent = (function () {
     NewUserFormComponent = __decorate([
         core_1.Component({
             selector: 'new-user-form',
-            templateUrl: 'app/users/new-user-form.component.html'
+            templateUrl: 'app/users/new-user-form.component.html',
+            providers: [router_1.Router, user_service_1.UserService]
         }), 
-        __metadata('design:paramtypes', [common_1.FormBuilder])
+        __metadata('design:paramtypes', [common_1.FormBuilder, router_1.Router, user_service_1.UserService])
     ], NewUserFormComponent);
     return NewUserFormComponent;
 }());

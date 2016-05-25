@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 // import 'rxjs/add/operator/toPromise';
 
-// import { User } from '../users/user';
+import { User } from '../users/user';
 
 @Injectable()
 
@@ -32,19 +32,19 @@ export class UserService {
   //     .catch(this.handleError);
   // }
 
-  // saveUser(user: User) {
-  //   // let headers = new Headers({
-  //   //   'Content-Type': 'application/json'
-  //   // });
-  //   // if (user.id) {
-  //   //   return this._http.put(user);
-  //   // }
-  //   // return this._http.post(
-  //   //   this._url,
-  //   //   JSON.stringify(user),
-  //   //   { headers: headers })
-  //   //   .map(res => res.json());
-  //   return this._http.post(this._url, JSON.stringify(user))
-  //     .map(res => res.json());
-  // }
+  saveUser(user: User) {
+    // let headers = new Headers({
+    //   'Content-Type': 'application/json'
+    // });
+    // if (user.id) {
+    //   return this._http.put(user);
+    // }
+    // return this._http.post(
+    //   this._url,
+    //   JSON.stringify(user),
+    //   { headers: headers })
+    //   .map(res => res.json());
+    return this._http.post(this._url, JSON.stringify(user))
+      .map(res => res.json());
+  }
 }

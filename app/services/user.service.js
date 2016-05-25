@@ -11,8 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var http_1 = require('@angular/http');
 var core_1 = require('@angular/core');
 require('rxjs/add/operator/map');
-// import 'rxjs/add/operator/toPromise';
-// import { User } from '../users/user';
 var UserService = (function () {
     // private handleError(error: any) {
     //   console.log('An error occurred', error);
@@ -24,6 +22,28 @@ var UserService = (function () {
     }
     UserService.prototype.getUsers = function () {
         return this._http.get(this._url)
+            .map(function (res) { return res.json(); });
+    };
+    // alt using Promise for getting Users
+    // getUsers () : Promise<User[]> {
+    //   return this._http.get(this._url)
+    //     .toPromise()
+    //     .then(response => response.json().data)
+    //     .catch(this.handleError);
+    // }
+    UserService.prototype.saveUser = function (user) {
+        // let headers = new Headers({
+        //   'Content-Type': 'application/json'
+        // });
+        // if (user.id) {
+        //   return this._http.put(user);
+        // }
+        // return this._http.post(
+        //   this._url,
+        //   JSON.stringify(user),
+        //   { headers: headers })
+        //   .map(res => res.json());
+        return this._http.post(this._url, JSON.stringify(user))
             .map(function (res) { return res.json(); });
     };
     UserService = __decorate([
