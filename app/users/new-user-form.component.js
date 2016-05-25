@@ -11,11 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 // import { NgForm } from '@angular/common';
 var common_1 = require('@angular/common');
-var router_1 = require('@angular/router');
+var http_1 = require('@angular/http');
+// import { Router } from '@angular/router';
 var user_service_1 = require('../services/user.service');
 var NewUserFormComponent = (function () {
-    function NewUserFormComponent(fb, _router, _userService) {
-        this._router = _router;
+    function NewUserFormComponent(fb, 
+        // private _router: Router,
+        _userService) {
         this._userService = _userService;
         this.newUserForm = fb.group({
             name: ['', common_1.Validators.required],
@@ -30,12 +32,11 @@ var NewUserFormComponent = (function () {
         });
     }
     NewUserFormComponent.prototype.addUser = function () {
-        var _this = this;
         // console.log(this.newUserForm.value);
         this._userService.saveUser(this.newUserForm.value)
             .subscribe(function (x) {
             // this.form.markAsPristine();
-            _this._router.navigate(['Users']);
+            // this._router.navigate(['Users']);
         });
     };
     NewUserFormComponent.prototype.routerCanDeactivate = function (nextInstruction, prevInstruction) {
@@ -48,9 +49,10 @@ var NewUserFormComponent = (function () {
         core_1.Component({
             selector: 'new-user-form',
             templateUrl: 'app/users/new-user-form.component.html',
-            providers: [router_1.Router, user_service_1.UserService]
+            // providers: [Router, UserService]
+            providers: [http_1.HTTP_PROVIDERS, user_service_1.UserService]
         }), 
-        __metadata('design:paramtypes', [common_1.FormBuilder, router_1.Router, user_service_1.UserService])
+        __metadata('design:paramtypes', [common_1.FormBuilder, user_service_1.UserService])
     ], NewUserFormComponent);
     return NewUserFormComponent;
 }());

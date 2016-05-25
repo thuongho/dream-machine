@@ -2,14 +2,17 @@ import { CanDeactivate, ComponentInstruction } from '@angular/router-deprecated'
 import { Component } from '@angular/core';
 // import { NgForm } from '@angular/common';
 import { ControlGroup, FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
-import { Router } from '@angular/router';
+import { HTTP_PROVIDERS } from '@angular/http';
+// import { Router } from '@angular/router';
+
 
 import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'new-user-form',
   templateUrl: 'app/users/new-user-form.component.html',
-  providers: [Router, UserService]
+  // providers: [Router, UserService]
+  providers: [HTTP_PROVIDERS, UserService]
 })
 
 export class NewUserFormComponent implements CanDeactivate {
@@ -17,7 +20,7 @@ export class NewUserFormComponent implements CanDeactivate {
 
   constructor(
     fb: FormBuilder,
-    private _router: Router,
+    // private _router: Router,
     private _userService: UserService
   ) {
     this.newUserForm = fb.group({
@@ -38,7 +41,7 @@ export class NewUserFormComponent implements CanDeactivate {
     this._userService.saveUser(this.newUserForm.value)
       .subscribe(x => {
         // this.form.markAsPristine();
-        this._router.navigate(['Users']);
+        // this._router.navigate(['Users']);
       });
   }
 
