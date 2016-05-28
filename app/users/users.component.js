@@ -11,11 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var router_deprecated_1 = require('@angular/router-deprecated');
+// import { User } from './user';
 var user_service_1 = require('../services/user.service');
 var UsersComponent = (function () {
     function UsersComponent(_userService) {
         this._userService = _userService;
-        this.users = [Object];
     }
     UsersComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -24,6 +24,9 @@ var UsersComponent = (function () {
             // console.log(users);
             _this.users = users;
         });
+        // this._userService.getUsers()
+        //   .then(users => this.users = users)
+        //   .catch(error => this.error = error);
     };
     UsersComponent = __decorate([
         core_1.Component({

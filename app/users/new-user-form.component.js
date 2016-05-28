@@ -11,34 +11,49 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 // import { NgForm } from '@angular/common';
 var common_1 = require('@angular/common');
+var http_1 = require('@angular/http');
+// import { Router } from '@angular/router';
+var user_service_1 = require('../services/user.service');
 var NewUserFormComponent = (function () {
-    function NewUserFormComponent(fb) {
+    function NewUserFormComponent(fb, 
+        // private _router: Router,
+        _userService) {
+        this._userService = _userService;
         this.newUserForm = fb.group({
             name: ['', common_1.Validators.required],
             email: ['', common_1.Validators.required],
-            phone: ['', common_1.Validators.required],
+            phone: [''],
             address: fb.group({
-                street: ['', common_1.Validators.required],
-                suite: ['', common_1.Validators.required],
-                city: ['', common_1.Validators.required],
-                zip: ['', common_1.Validators.required]
+                street: [''],
+                suite: [''],
+                city: [''],
+                zip: ['']
             })
         });
     }
     NewUserFormComponent.prototype.addUser = function () {
-        console.log(this.newUserForm.value);
+        console.log('value', this.newUserForm.value);
+        this._userService.saveUser(this.newUserForm.value)
+            .subscribe(function (x) {
+            console.log('x', x);
+            // this.form.markAsPristine();
+            // this._router.navigate(['Users']);
+        });
     };
     NewUserFormComponent.prototype.routerCanDeactivate = function (nextInstruction, prevInstruction) {
         if (this.newUserForm.dirty) {
             return confirm('Page has unsaved info, are you sure you want to leave page?');
         }
+        return true;
     };
     NewUserFormComponent = __decorate([
         core_1.Component({
             selector: 'new-user-form',
-            templateUrl: 'app/users/new-user-form.component.html'
+            templateUrl: 'app/users/new-user-form.component.html',
+            // providers: [Router, UserService]
+            providers: [http_1.HTTP_PROVIDERS, user_service_1.UserService]
         }), 
-        __metadata('design:paramtypes', [common_1.FormBuilder])
+        __metadata('design:paramtypes', [common_1.FormBuilder, user_service_1.UserService])
     ], NewUserFormComponent);
     return NewUserFormComponent;
 }());

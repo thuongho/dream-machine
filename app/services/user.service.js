@@ -12,6 +12,10 @@ var http_1 = require('@angular/http');
 var core_1 = require('@angular/core');
 require('rxjs/add/operator/map');
 var UserService = (function () {
+    // private handleError(error: any) {
+    //   console.log('An error occurred', error);
+    //   return Promise.reject(error.message || error);
+    // }
     function UserService(_http) {
         this._http = _http;
         this._url = 'http://jsonplaceholder.typicode.com/users';
@@ -19,6 +23,34 @@ var UserService = (function () {
     UserService.prototype.getUsers = function () {
         return this._http.get(this._url)
             .map(function (res) { return res.json(); });
+    };
+    // alt using Promise for getting Users
+    // getUsers () : Promise<User[]> {
+    //   return this._http.get(this._url)
+    //     .toPromise()
+    //     .then(response => response.json().data)
+    //     .catch(this.handleError);
+    // }
+    UserService.prototype.saveUser = function (user) {
+        // let headers = new Headers({
+        //   'Content-Type': 'application/json'
+        // });
+        // if (user.id) {
+        //   return this._http.put(user);
+        // }
+        // return this._http.post(
+        //   this._url,
+        //   JSON.stringify(user),
+        //   { headers: headers })
+        //   .map(res => res.json());
+        console.log(user);
+        console.log(JSON.stringify(user));
+        return this._http.post(this._url, JSON.stringify(user))
+            .map(function (res) {
+            console.log(JSON.stringify(res));
+            return res.json();
+            // console.log(res.json());
+        });
     };
     UserService = __decorate([
         core_1.Injectable(), 
