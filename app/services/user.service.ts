@@ -44,7 +44,11 @@ export class UserService {
     //   JSON.stringify(user),
     //   { headers: headers })
     //   .map(res => res.json());
+    console.log(user);
     return this._http.post(this._url, JSON.stringify(user))
-      .map(res => res.json());
+      .map(res => {
+        console.log(JSON.stringify(res));
+        res.json()
+      });
   }
 }

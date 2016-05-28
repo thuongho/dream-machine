@@ -37,9 +37,10 @@ export class NewUserFormComponent implements CanDeactivate {
   }
 
   addUser() {
-    // console.log(this.newUserForm.value);
+    console.log('value', this.newUserForm.value);
     this._userService.saveUser(this.newUserForm.value)
       .subscribe(x => {
+        console.log('x', x);
         // this.form.markAsPristine();
         // this._router.navigate(['Users']);
       });

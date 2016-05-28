@@ -43,8 +43,12 @@ var UserService = (function () {
         //   JSON.stringify(user),
         //   { headers: headers })
         //   .map(res => res.json());
+        console.log(user);
         return this._http.post(this._url, JSON.stringify(user))
-            .map(function (res) { return res.json(); });
+            .map(function (res) {
+            console.log(JSON.stringify(res));
+            res.json();
+        });
     };
     UserService = __decorate([
         core_1.Injectable(), 

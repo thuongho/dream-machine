@@ -32,9 +32,10 @@ var NewUserFormComponent = (function () {
         });
     }
     NewUserFormComponent.prototype.addUser = function () {
-        // console.log(this.newUserForm.value);
+        console.log('value', this.newUserForm.value);
         this._userService.saveUser(this.newUserForm.value)
             .subscribe(function (x) {
+            console.log('x', x);
             // this.form.markAsPristine();
             // this._router.navigate(['Users']);
         });
